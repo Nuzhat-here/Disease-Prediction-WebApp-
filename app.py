@@ -3,7 +3,7 @@ import pickle
 import streamlit as st
 from streamlit_option_menu import option_menu
 
-# Set page configuration
+
 st.set_page_config(page_title="Multiple Disease Prediction",
                    layout="wide",
                    page_icon="📝")
@@ -22,7 +22,7 @@ st.markdown(
         color: white;
     }
     .sidebar .sidebar-content a:hover {
-        color: #B0E0E6; /* Light blue for hover effect */
+        color: blue; 
     }
     .st-bf {
         color: white;
