@@ -30,7 +30,7 @@ with st.sidebar:
                             'Heart Disease Prediction',
                             'Parkinsons Prediction'],
                            menu_icon='laptop',
-                           icons=['capsule', 'heart', 'Person-walking'],
+                           icons=['capsule', 'heart', 'person'],
                            default_index=0)
 
 
