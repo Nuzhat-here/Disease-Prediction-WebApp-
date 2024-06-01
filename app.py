@@ -8,7 +8,10 @@ st.set_page_config(page_title="Multiple Disease Prediction",
                    layout="wide",
                    page_icon="📝")
     
-
+st.markdown(
+    '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">',
+    unsafe_allow_html=True
+)
 working_dir = os.path.dirname(os.path.abspath(__file__))
 
 
