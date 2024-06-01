@@ -27,7 +27,7 @@ with st.sidebar:
                             'Heart Disease Prediction',
                             'Parkinsons Prediction'],
                            menu_icon="💻",
-                           icons=['syringe', 'heart', 'person-walking'],
+                           icons=['syringe', 'heart', 'walking'],
                            default_index=0)
 
 
