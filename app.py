@@ -26,8 +26,8 @@ with st.sidebar:
                            ['Diabetes Prediction',
                             'Heart Disease Prediction',
                             'Parkinsons Prediction'],
-                           menu_icon="💻",
-                           icons=['syringe', 'heart', 'walking'],
+                           menu_icon='Laptop',
+                           icons=['capsule', 'heart', 'person-arms-up'],
                            default_index=0)
 
 
