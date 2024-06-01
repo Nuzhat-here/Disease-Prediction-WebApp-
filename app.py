@@ -14,6 +14,25 @@ st.markdown(
         background-color: navy;
         color: white;
     }
+    .sidebar .sidebar-content {
+        background-color: navy;
+        color: white;
+    }
+    .sidebar .sidebar-content a {
+        color: white;
+    }
+    .sidebar .sidebar-content a:hover {
+        color: #B0E0E6; /* Light blue for hover effect */
+    }
+    .st-bf {
+        color: white;
+    }
+    .st-cz {
+        color: white;
+    }
+    .st-ct {
+        color: white;
+    }
     </style>
     """,
     unsafe_allow_html=True
