@@ -7,36 +7,6 @@ from streamlit_option_menu import option_menu
 st.set_page_config(page_title="Multiple Disease Prediction",
                    layout="wide",
                    page_icon="📝")
-st.markdown(
-    """
-    <style>
-    .stApp {
-        background-color: navy;
-        color: white;
-    }
-    .sidebar .sidebar-content {
-        background-color: navy;
-        color: white;
-    }
-    .sidebar .sidebar-content a {
-        color: white;
-    }
-    .sidebar .sidebar-content a:hover {
-        color: blue; 
-    }
-    .st-bf {
-        color: white;
-    }
-    .st-cz {
-        color: white;
-    }
-    .st-ct {
-        color: white;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
     
 
 working_dir = os.path.dirname(os.path.abspath(__file__))
