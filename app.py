@@ -83,9 +83,18 @@ if selected == 'Diabetes Prediction':
         diab_prediction = diabetes_model.predict([user_input])
 
         if diab_prediction[0] == 1:
-            diab_diagnosis = 'The person is diabetic'
+            diab_diagnosis = """The person is diabetic. Please try to follow the instructions below:
+
+- Maintain a balanced diet with controlled carbohydrate intake.
+- Engage in regular physical activity to manage blood sugar levels.
+- Consistently monitor blood glucose levels.
+
+            """
         else:
-            diab_diagnosis = 'The person is not diabetic'
+            non_diab_diagnosis = """The person is not diabetic. Please try to follow the instructions below:
+- Follow a healthy diet rich in whole foods.
+- Engage in regular exercise to maintain a healthy weight.
+- Have routine health check-ups to catch any potential issues early."""
 
     st.success(diab_diagnosis)
 
@@ -150,9 +159,16 @@ if selected == 'Heart Disease Prediction':
         heart_prediction = heart_disease_model.predict([user_input])
 
         if heart_prediction[0] == 1:
-            heart_diagnosis = 'The person is having heart disease'
+            heart_diagnosis = """The person is having heart disease. Please try to follow the instructions below:
+- Adopt a heart-healthy diet low in saturated fats, trans fats, and cholesterol.
+- Engage in regular physical activity, aiming for at least 150 minutes of moderate exercise per week.
+- Avoid smoking and limit alcohol consumption."""
         else:
-            heart_diagnosis = 'The person does not have any heart disease'
+            heart_diagnosis = """The person does not have any heart disease. Please try to follow the instructions below:
+- Maintain a balanced diet rich in fruits, vegetables, and whole grains.
+- Engage in regular physical activity to keep your heart healthy.
+- Have routine health check-ups to monitor heart health and catch any potential issues early."""
+
 
     st.success(heart_diagnosis)
 
@@ -165,25 +181,25 @@ if selected == "Parkinsons Prediction":
     col1, col2, col3, col4, col5 = st.columns(5)
 
     with col1:
-        fo = st.text_input('MDVP:Fo(Hz)')
+        fo = st.text_input('MDVP(Fo)')
 
     with col2:
-        fhi = st.text_input('MDVP:Fhi(Hz)')
+        fhi = st.text_input('MDVP(Fhi)')
 
     with col3:
-        flo = st.text_input('MDVP:Flo(Hz)')
+        flo = st.text_input('MDVP(Flo)')
 
     with col4:
-        Jitter_percent = st.text_input('MDVP:Jitter(%)')
+        Jitter_percent = st.text_input('MDVP(Jitter%)')
 
     with col5:
-        Jitter_Abs = st.text_input('MDVP:Jitter(Abs)')
+        Jitter_Abs = st.text_input('MDVP(Jitter Abs)')
 
     with col1:
-        RAP = st.text_input('MDVP:RAP')
+        RAP = st.text_input('MDVP(RAP)')
 
     with col2:
-        PPQ = st.text_input('MDVP:PPQ')
+        PPQ = st.text_input('MDVP(PPQ)')
 
     with col3:
         DDP = st.text_input('Jitter:DDP')
@@ -192,7 +208,7 @@ if selected == "Parkinsons Prediction":
         Shimmer = st.text_input('MDVP:Shimmer')
 
     with col5:
-        Shimmer_dB = st.text_input('MDVP:Shimmer(dB)')
+        Shimmer_dB = st.text_input('MDVP(Shimmer)')
 
     with col1:
         APQ3 = st.text_input('Shimmer:APQ3')
@@ -245,8 +261,15 @@ if selected == "Parkinsons Prediction":
         parkinsons_prediction = parkinsons_model.predict([user_input])
 
         if parkinsons_prediction[0] == 1:
-            parkinsons_diagnosis = "The person has Parkinson's disease"
+            parkinsons_diagnosis = """The person has Parkinson's disease. Please try to follow the instructions below:
+- Follow a balanced diet to maintain overall health and manage symptoms.
+- Engage in regular physical activity to improve mobility, flexibility, and balance.
+- Take medications as prescribed by a healthcare provider and attend regular medical appointments."""
+
         else:
-            parkinsons_diagnosis = "The person does not have Parkinson's disease"
+            parkinsons_diagnosis = """The person does not have Parkinson's disease. Please try to follow the instructions below:
+- Maintain a balanced diet to support overall health and well-being.
+- Engage in regular physical activity to enhance mobility and physical fitness.
+- Have routine health check-ups to monitor neurological health and catch any potential issues early."""
 
     st.success(parkinsons_diagnosis)
