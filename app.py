@@ -3,44 +3,39 @@ import pickle
 import streamlit as st
 from streamlit_option_menu import option_menu
 
+st.set_page_config(
+    page_title="Multiple Disease Prediction",
+    layout="wide",
+    page_icon="📝"
+)
 
-st.set_page_config(page_title="Multiple Disease Prediction",
-                   layout="wide",
-                   page_icon="📝")
-    
 st.markdown(
     '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">',
     unsafe_allow_html=True
 )
+
 working_dir = os.path.dirname(os.path.abspath(__file__))
 
+# nushrat's saved modelss
 
-#nushrat's saved models 
 diabetes_model = pickle.load(open(f'{working_dir}/saved_models/diabetes_model.sav', 'rb'))
-
 heart_disease_model = pickle.load(open(f'{working_dir}/saved_models/heart_disease_model.sav', 'rb'))
-
 parkinsons_model = pickle.load(open(f'{working_dir}/saved_models/parkinsons_model.sav', 'rb'))
-
 
 with st.sidebar:
     selected = option_menu('Multiple Disease Prediction System',
-
-                           ['Diabetes Prediction',
-                            'Heart Disease Prediction',
-                            'Parkinsons Prediction'],
+                           ['Diabetes Prediction', 'Heart Disease Prediction', 'Parkinsons Prediction'],
                            menu_icon='laptop',
                            icons=['capsule', 'heart', 'person'],
                            default_index=0)
 
-
+diab_diagnosis = ''  
+heart_diagnosis = '' 
+parkinsons_diagnosis = ''  
 
 if selected == 'Diabetes Prediction':
-
-    
     st.title('Diabetes Prediction')
 
-    
     col1, col2, col3 = st.columns(3)
 
     with col1:
@@ -67,14 +62,7 @@ if selected == 'Diabetes Prediction':
     with col2:
         Age = st.text_input('Age of the Person')
 
-
-  
-    diab_diagnosis = ''
-
-    
-
     if st.button('Diabetes Test Result'):
-
         user_input = [Pregnancies, Glucose, BloodPressure, SkinThickness, Insulin,
                       BMI, DiabetesPedigreeFunction, Age]
 
@@ -84,24 +72,18 @@ if selected == 'Diabetes Prediction':
 
         if diab_prediction[0] == 1:
             diab_diagnosis = """The person is diabetic. Please try to follow the instructions below:
-
 - Maintain a balanced diet with controlled carbohydrate intake.
 - Engage in regular physical activity to manage blood sugar levels.
-- Consistently monitor blood glucose levels.
-
-            """
+- Consistently monitor blood glucose levels."""
         else:
-            non_diab_diagnosis = """The person is not diabetic. Please try to follow the instructions below:
+            diab_diagnosis = """The person is not diabetic. Please try to follow the instructions below:
 - Follow a healthy diet rich in whole foods.
 - Engage in regular exercise to maintain a healthy weight.
 - Have routine health check-ups to catch any potential issues early."""
 
     st.success(diab_diagnosis)
 
-
 if selected == 'Heart Disease Prediction':
-
-   
     st.title('Heart Disease Prediction')
 
     col1, col2, col3 = st.columns(3)
@@ -145,13 +127,7 @@ if selected == 'Heart Disease Prediction':
     with col1:
         thal = st.text_input('thal: 0 = normal; 1 = fixed defect; 2 = reversable defect')
 
-    
-    heart_diagnosis = ''
-
-    
-
     if st.button('Heart Disease Test Result'):
-
         user_input = [age, sex, cp, trestbps, chol, fbs, restecg, thalach, exang, oldpeak, slope, ca, thal]
 
         user_input = [float(x) for x in user_input]
@@ -169,13 +145,9 @@ if selected == 'Heart Disease Prediction':
 - Engage in regular physical activity to keep your heart healthy.
 - Have routine health check-ups to monitor heart health and catch any potential issues early."""
 
-
     st.success(heart_diagnosis)
 
-#
 if selected == "Parkinsons Prediction":
-
- 
     st.title("Parkinson's Disease Prediction")
 
     col1, col2, col3, col4, col5 = st.columns(5)
@@ -246,14 +218,9 @@ if selected == "Parkinsons Prediction":
     with col2:
         PPE = st.text_input('PPE')
 
-    
-    parkinsons_diagnosis = ''
-
-     
     if st.button("Parkinson's Test Result"):
-
         user_input = [fo, fhi, flo, Jitter_percent, Jitter_Abs,
-                      RAP, PPQ, DDP,Shimmer, Shimmer_dB, APQ3, APQ5,
+                      RAP, PPQ, DDP, Shimmer, Shimmer_dB, APQ3, APQ5,
                       APQ, DDA, NHR, HNR, RPDE, DFA, spread1, spread2, D2, PPE]
 
         user_input = [float(x) for x in user_input]
@@ -265,7 +232,6 @@ if selected == "Parkinsons Prediction":
 - Follow a balanced diet to maintain overall health and manage symptoms.
 - Engage in regular physical activity to improve mobility, flexibility, and balance.
 - Take medications as prescribed by a healthcare provider and attend regular medical appointments."""
-
         else:
             parkinsons_diagnosis = """The person does not have Parkinson's disease. Please try to follow the instructions below:
 - Maintain a balanced diet to support overall health and well-being.
